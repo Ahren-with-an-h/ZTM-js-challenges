@@ -17,6 +17,7 @@ const convertColorFormat = (str => {
         const hexGroups = hexVals.slice(1, 4); // color groups from re output
         let rgbArr = [];
 
+        // Convert each color one at a time
         for (let color of hexGroups) {
             rgbArr.push(parseInt(color, 16));
         }
@@ -29,8 +30,10 @@ const convertColorFormat = (str => {
         const rgbGroups = rgbVals.slice(1, 4); // color groups from re output
         let hexArr = [];
 
+        // Convert each color one at a time
         for (let color of rgbGroups) {
-            let hexColor = parseInt(color).toString(16)
+            let hexColor = parseInt(color).toString(16);
+            // if only one digit add a 0
             if (hexColor.length === 1) {
                 hexColor = '0' + hexColor;
             }
