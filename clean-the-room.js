@@ -6,18 +6,18 @@
 // Bonus: Make it so it organizes strings differently from number types.
 // i.e. [1, "2", "3", 2] should return [[1,2], ["2", "3"]]
 
-const cleanTheRoom = (array) => {
+function cleanTheRoom(array) {
     // Make a copy to work with
     arr = array.slice();
     // Sort the array
     arr.sort((a, b) => parseInt(a) - parseInt(b));
 
     // Separate numbers and strings
-    let stringArr = arr.filter(item => typeof(item) === 'string')
-    let numArr = arr.filter(item => typeof(item) === 'number')
+    let stringArr = arr.filter(item => typeof(item) === 'string');
+    let numArr = arr.filter(item => typeof(item) === 'number');
     
     // Group duplicates
-    const groupDuplicates = (arr => {
+    function groupDuplicates(arr) {
         let newArr = [];
         // Get number of duplicates and splice them into the new array
         while (arr.length > 0) {
@@ -30,7 +30,7 @@ const cleanTheRoom = (array) => {
             }
         }
         return newArr;
-    });
+    }
     stringArr = groupDuplicates(stringArr);
     numArr = groupDuplicates(numArr);  
 
